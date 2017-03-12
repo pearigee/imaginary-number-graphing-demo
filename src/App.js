@@ -131,7 +131,7 @@ class App extends Component {
           </div>
           <div>
             <div style={{height: '3em', userSelect: 'none'}}>
-              <MathJax.Node>{`\f^{-1}(x)=\\sqrt{z^2}=\\pm{z}`}</MathJax.Node> 
+              <MathJax.Node>{`f^{-1}(x)=\\sqrt{z^2}=\\pm{z}`}</MathJax.Node> 
               <p style={{textAlign: 'center'}}>(outputs to graph on left)</p>
             </div>
             <canvas 
