@@ -72,7 +72,7 @@ class App extends Component {
     const {top, left} = canvas.getBoundingClientRect();
     let [xIn, y] = [event.clientX - left, event.clientY - top];
     let [x, i] = this.canvasToPlot(xIn, y);
-    this.setState({x, i});
+    this.setState({x, i: -i});
     return [x, i]
   }
 
@@ -119,25 +119,27 @@ class App extends Component {
           </div>  
           <div>
             <div style={{height: '3em', userSelect: 'none'}}>
-              <MathJax.Node>{`f(x)=z^2`}</MathJax.Node>
+              <MathJax.Node>{`f(x)=z^2`}</MathJax.Node> 
+              <p style={{textAlign: 'center'}}>(outputs to graph on right)</p>
             </div>
             <canvas 
               onMouseMove={this.handleMouseMove} 
               width={this.width} 
               height={this.height} 
               ref={this.initCanvas}
-              style={{outlineStyle: 'solid', margin: '5px'}}/>
+              style={{outlineStyle: 'solid', margin: '1em'}}/>
           </div>
           <div>
             <div style={{height: '3em', userSelect: 'none'}}>
-              <MathJax.Node>{`f^{-1}(x)=\\sqrt{z^2}=\\pm{z}`}</MathJax.Node>
+              <MathJax.Node>{`\f^{-1}(x)=\\sqrt{z^2}=\\pm{z}`}</MathJax.Node> 
+              <p style={{textAlign: 'center'}}>(outputs to graph on left)</p>
             </div>
             <canvas 
               onMouseMove={this.handleOutputMouseMove} 
               width={this.width} 
               height={this.height} 
               ref={this.initOutputCanvas}
-              style={{outlineStyle: 'solid', margin: '5px'}}/>
+              style={{outlineStyle: 'solid', margin: '1em'}}/>
           </div>
         </div>
       </MathJax.Context>
